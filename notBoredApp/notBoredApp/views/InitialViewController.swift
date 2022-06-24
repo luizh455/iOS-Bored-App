@@ -27,7 +27,7 @@ class InitialViewController: UIViewController {
     }
 
     @IBAction func onPressStartButton(_ sender: UIButton) {
-        let newView = CategoriesViewController()
+        let newView = CategoriesViewController(numberOfParticipants: Int(participantsTextField.text!))
         newView.modalPresentationStyle = .fullScreen
         present(newView, animated: true)
         
@@ -36,18 +36,7 @@ class InitialViewController: UIViewController {
         let newView = TermsAndConditionsViewController()
         newView.modalPresentationStyle = .fullScreen
         present(newView, animated: true)
-    }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    }    
 
 }
 
@@ -63,15 +52,12 @@ extension InitialViewController: UITextFieldDelegate {
         if(txt == "")
         {
             StartButton.isEnabled = true
-            print("enable")
         } else if(Int(txt) ?? 0 >= 1){
             StartButton.isEnabled = true
-            print("enable")
         }
         else
         {
             StartButton.isEnabled = false
-            print("disable")
         }
         
     }

@@ -15,4 +15,19 @@ struct Activity : Codable {
     let link : String
     let key : String
     let accessibility : Float
+    let fixedNumberOfParticipants : Bool?
+    
+    var priceString : String {
+        switch price {
+        case let price where price == 0.00:
+            return "Free"
+        case let price where price == 0.30:
+            return "Low"
+        case let price where price == 0.60:
+            return "Medium"
+        default:
+            return "High"
+            
+        }
+    }
 }

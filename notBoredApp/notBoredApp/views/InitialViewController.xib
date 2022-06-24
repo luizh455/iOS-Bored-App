@@ -57,7 +57,6 @@
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
                                                 <action selector="editingChanged:" destination="-1" eventType="editingChanged" id="r3m-YO-gWf"/>
-                                                <action selector="textFieldDidChanged:" destination="-1" eventType="valueChanged" id="cg2-Jo-vTh"/>
                                             </connections>
                                         </textField>
                                     </subviews>

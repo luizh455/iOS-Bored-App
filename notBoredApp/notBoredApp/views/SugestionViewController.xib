@@ -15,6 +15,7 @@
                 <outlet property="descriptionLabel" destination="FPY-z1-ted" id="tOT-gN-lmH"/>
                 <outlet property="participantsNumberLabel" destination="D2N-Lk-hVO" id="UEZ-KY-4Hx"/>
                 <outlet property="priceLabel" destination="cO7-lt-YKD" id="hvU-rf-nId"/>
+                <outlet property="titleLabel" destination="rEb-4I-u9u" id="hPB-07-cwo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -61,13 +62,13 @@
                                 <constraint firstAttribute="height" constant="50" id="qjc-ol-yma"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Participants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cza-vd-sor">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Participants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cza-vd-sor">
                             <rect key="frame" x="95" y="0.0" width="160" height="50"/>
                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2N-Lk-hVO">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2N-Lk-hVO">
                             <rect key="frame" x="300" y="0.0" width="14" height="50"/>
                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                             <nil key="textColor"/>
@@ -86,13 +87,13 @@
                                 <constraint firstAttribute="height" constant="50" id="wZP-uu-3Ga"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mld-lZ-c5m">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mld-lZ-c5m">
                             <rect key="frame" x="95" y="0.0" width="89.5" height="50"/>
                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                             <nil key="textColor"/>
                             <color key="highlightedColor" red="0.01398379076" green="0.0053813420239999998" blue="0.24900299309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Medium" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cO7-lt-YKD">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medium" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cO7-lt-YKD">
                             <rect key="frame" x="229.5" y="0.0" width="84.5" height="50"/>
                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                             <nil key="textColor"/>
