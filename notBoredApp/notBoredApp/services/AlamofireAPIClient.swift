@@ -9,24 +9,12 @@
 import Foundation
 import Alamofire
 
-class AlamofireAPIClient {
+final class AlamofireAPIClient {
     func get(url: String, completion: @escaping (Result<Data?, AFError>) -> Void) {
         AF.request(url).response {
             response in
             completion(response.result)
         }
-//        request.responseJSON { data in
-//            completion(data)
-//        }
-//        let request = AF.request(url, method: .get, parameters: .none, encoding: JSONEncoding.default, headers: .default, interceptor: .none, requestModifier: .none)
-        
-//            request.responseJSON { data in
-//                completion(data, data.result.success)
-//            }
-
-//        AF.request(url).response { response in
-//            completion(response.result)
-//        }
     }
 }
 

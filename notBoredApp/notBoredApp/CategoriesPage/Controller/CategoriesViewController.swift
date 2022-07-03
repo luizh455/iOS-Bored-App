@@ -7,15 +7,13 @@
 
 import UIKit
 
-class CategoriesViewController: UIViewController {
-    
-    let boredApiService = BoredApiService()
-    var fixedParticipantsNumber : Int?
-    
+final class CategoriesViewController: UIViewController {
 
-    let categoriesMock = ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"]
+    private let boredApiService = BoredApiService()
+    private let categories = Categories()
+    private var fixedParticipantsNumber : Int?
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -24,70 +22,79 @@ class CategoriesViewController: UIViewController {
         getCategories()
         // Do any additional setup after loading the view.
     }
-    
+
     init(numberOfParticipants : Int?){
         super.init(nibName: nil, bundle: nil)
         fixedParticipantsNumber = numberOfParticipants
-        
+
     }
-    
+
+    private func showSimpleAlert() {
+        let alert = UIAlertController(title: "Something went wrong...", message: "No sugestions were found.",preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            //Cancel Action
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func getCategories(){
         tableView.reloadData()
     }
-    
-    @IBAction func onPressRandomButton(_ sender: Any) {
+
+    @IBAction private func onPressRandomButton(_ sender: Any) {
         let completion : (Activity?) -> Void = { activity in
             if let activity = activity {
-                let newView = SugestionViewController(activity: activity, isRandom: true, numberOfParticipants: self.fixedParticipantsNumber)
-                
+                let newView = SugestionViewController(activity: activity, isRandom: true,
+                                                      numberOfParticipants: self.fixedParticipantsNumber, self.boredApiService)
+
                 newView.modalPresentationStyle = .fullScreen
                 self.present(newView, animated: true)
             }
-            
+
         }
-        boredApiService.getRandomActivity(fixedParticipantsNumber, completion: completion)
+
+        let error : () -> Void =  {self.showSimpleAlert()}
+        boredApiService.getRandomActivity(fixedParticipantsNumber, completion: completion, onError: error)
     }
-    @IBAction func onPressBackButton(_ sender: UIButton) {
+    @IBAction private func onPressBackButton(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
-    
+
+
 }
 
 extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        categoriesMock.count
+        categories.categoriesMock.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = categoriesMock[indexPath.row].capitalized
-        //cell.backgroundColor = UIColor.blue
-        
+        cell.textLabel?.text = categories.categoriesMock[indexPath.row].capitalized
         cell.accessoryType = .disclosureIndicator
         cell.selectionStyle = .none
-        
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let completion : (Activity?) -> Void = { activity in
             if let activity = activity {
                 let newView = SugestionViewController(
                     activity: activity,
                     isRandom: false,
-                    numberOfParticipants: self.fixedParticipantsNumber)
+                    numberOfParticipants: self.fixedParticipantsNumber, self.boredApiService)
                 newView.modalPresentationStyle = .fullScreen
                 self.present(newView, animated: true)
             }
-            
+
         }
-        
-        boredApiService.getActivity(by: categoriesMock[indexPath.row], fixedParticipantsNumber) { activity in
-            completion(activity)
-        }
+        let error : () -> Void =  { self.showSimpleAlert()}
+        boredApiService.getActivity(by: categories.categoriesMock[indexPath.row], fixedParticipantsNumber, completion: completion, onError: error)
     }
 }

@@ -11,16 +11,16 @@ import Alamofire
 protocol BoredApiServiceProtocol {
     var apiClient : AlamofireAPIClient { get }
     var baseURL : String { get }
-    func getRandomActivity(_ numberOfParticipants : Int?, completion : @escaping (Activity?) -> Void)
-    func getActivity(by: String, _ :Int?, completion : @escaping (Activity?) -> Void)
+    func getRandomActivity(_ numberOfParticipants : Int?, completion : @escaping (Activity?) -> Void, onError : @escaping () -> Void)
+    func getActivity(by: String, _ :Int?, completion : @escaping (Activity?) -> Void, onError : @escaping () -> Void)
 }
 
 final class BoredApiService : BoredApiServiceProtocol {
-    
-    let apiClient = AlamofireAPIClient()
-    let baseURL = "http://www.boredapi.com/api"
 
-    func getRandomActivity(_ numberOfParticipants : Int?,  completion : @escaping (Activity?) -> Void){
+    internal let apiClient = AlamofireAPIClient()
+    internal let baseURL = "http://www.boredapi.com/api"
+
+    func getRandomActivity(_ numberOfParticipants : Int?,  completion : @escaping (Activity?) -> Void, onError : @escaping () -> Void){
         var customParticipantsURL = ""
         if let numberOfParticipants = numberOfParticipants {
             customParticipantsURL = "?participants=\(numberOfParticipants)"
@@ -36,16 +36,18 @@ final class BoredApiService : BoredApiServiceProtocol {
                             completion(activity)
                         }
                     } catch {
+                        onError()
                         print("catch \(error)")
                     }
                 case .failure(_):
+                    onError()
                     print("failure")
-                    
+
                 }
             }
     }
-    
-    func getActivity(by type: String, _ numberOfParticipants : Int?, completion : @escaping (Activity?) -> Void){
+
+    func getActivity(by type: String, _ numberOfParticipants : Int?, completion : @escaping (Activity?) -> Void, onError : @escaping () -> Void){
         var customParticipantsURL = ""
         if let numberOfParticipants = numberOfParticipants {
             customParticipantsURL = "&participants=\(numberOfParticipants)"
@@ -62,13 +64,15 @@ final class BoredApiService : BoredApiServiceProtocol {
                         }
                     } catch {
                         print("catch \(error)")
+                        onError()
                     }
                 case .failure(_):
                     print("failure")
-                    
+                    onError()
+
                 }
             }
     }
-    
-    
+
+
 }

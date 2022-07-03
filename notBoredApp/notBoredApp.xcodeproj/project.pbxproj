@@ -25,6 +25,7 @@
 		2961B69C28650CB600A1DBF6 /* AlamofireAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2961B69B28650CB600A1DBF6 /* AlamofireAPIClient.swift */; };
 		2961B69F2865160B00A1DBF6 /* SugestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2961B69D2865160B00A1DBF6 /* SugestionViewController.swift */; };
 		2961B6A02865160B00A1DBF6 /* SugestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2961B69E2865160B00A1DBF6 /* SugestionViewController.xib */; };
+		298F8E2F286A7860007A01EB /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F8E2E286A7860007A01EB /* Categories.swift */; };
 		34A5C2B4C2B5C1CAA1ACAAAF /* Pods_notBoredApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8332B2968DE8BCEDF57A5A0 /* Pods_notBoredApp.framework */; };
 		38B3CE11C3ABCF2B6995E011 /* Pods_notBoredApp_notBoredAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E380C905D8B8F918E3EA30 /* Pods_notBoredApp_notBoredAppUITests.framework */; };
 		B390218D27C66C7A522A2A8D /* Pods_notBoredAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35CAA0BC7C3AECC700C4395B /* Pods_notBoredAppTests.framework */; };
@@ -70,6 +71,7 @@
 		2961B69B28650CB600A1DBF6 /* AlamofireAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireAPIClient.swift; sourceTree = "<group>"; };
 		2961B69D2865160B00A1DBF6 /* SugestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestionViewController.swift; sourceTree = "<group>"; };
 		2961B69E2865160B00A1DBF6 /* SugestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SugestionViewController.xib; sourceTree = "<group>"; };
+		298F8E2E286A7860007A01EB /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		2FCAF32136FD548A7DAC1B9D /* Pods-notBoredApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notBoredApp.release.xcconfig"; path = "Target Support Files/Pods-notBoredApp/Pods-notBoredApp.release.xcconfig"; sourceTree = "<group>"; };
 		35CAA0BC7C3AECC700C4395B /* Pods_notBoredAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_notBoredAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B858B39CEFAAD9FD7DF5F5 /* Pods-notBoredAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notBoredAppTests.debug.xcconfig"; path = "Target Support Files/Pods-notBoredAppTests/Pods-notBoredAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,8 +136,12 @@
 		29018826285D0497005AB85B /* notBoredApp */ = {
 			isa = PBXGroup;
 			children = (
+				298F8E22286A6B37007A01EB /* InitialPage */,
+				298F8E26286A6FEC007A01EB /* TermsPage */,
+				298F8E27286A6FFC007A01EB /* CategoriesPage */,
+				298F8E25286A6FCF007A01EB /* SugestionPage */,
 				2961B6A528655C5200A1DBF6 /* services */,
-				2961B6A428655ADC00A1DBF6 /* views */,
+				29018832285D049C005AB85B /* LaunchScreen.storyboard */,
 				2961B6A328655AB400A1DBF6 /* models */,
 				29018827285D0497005AB85B /* AppDelegate.swift */,
 				29018829285D0497005AB85B /* SceneDelegate.swift */,
@@ -166,24 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				2961B6912864D58D00A1DBF6 /* Activity.swift */,
+				298F8E2E286A7860007A01EB /* Categories.swift */,
 			);
 			path = models;
-			sourceTree = "<group>";
-		};
-		2961B6A428655ADC00A1DBF6 /* views */ = {
-			isa = PBXGroup;
-			children = (
-				29018832285D049C005AB85B /* LaunchScreen.storyboard */,
-				290A0BD62863BE6800FB7AD7 /* InitialViewController.swift */,
-				290A0BD72863BE6800FB7AD7 /* InitialViewController.xib */,
-				2961B69D2865160B00A1DBF6 /* SugestionViewController.swift */,
-				2961B69E2865160B00A1DBF6 /* SugestionViewController.xib */,
-				2961B6892863E4E100A1DBF6 /* TermsAndConditionsViewController.swift */,
-				2961B68A2863E4E100A1DBF6 /* TermsAndConditionsViewController.xib */,
-				2961B68D2863F46100A1DBF6 /* CategoriesViewController.swift */,
-				2961B68E2863F46100A1DBF6 /* CategoriesViewController.xib */,
-			);
-			path = views;
 			sourceTree = "<group>";
 		};
 		2961B6A528655C5200A1DBF6 /* services */ = {
@@ -193,6 +184,106 @@
 				2961B69B28650CB600A1DBF6 /* AlamofireAPIClient.swift */,
 			);
 			path = services;
+			sourceTree = "<group>";
+		};
+		298F8E22286A6B37007A01EB /* InitialPage */ = {
+			isa = PBXGroup;
+			children = (
+				298F8E24286A6B5E007A01EB /* Controller */,
+				298F8E23286A6B52007A01EB /* View */,
+			);
+			path = InitialPage;
+			sourceTree = "<group>";
+		};
+		298F8E23286A6B52007A01EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				290A0BD72863BE6800FB7AD7 /* InitialViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		298F8E24286A6B5E007A01EB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				290A0BD62863BE6800FB7AD7 /* InitialViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		298F8E25286A6FCF007A01EB /* SugestionPage */ = {
+			isa = PBXGroup;
+			children = (
+				298F8E2D286A734C007A01EB /* Controller */,
+				298F8E2C286A7347007A01EB /* View */,
+			);
+			path = SugestionPage;
+			sourceTree = "<group>";
+		};
+		298F8E26286A6FEC007A01EB /* TermsPage */ = {
+			isa = PBXGroup;
+			children = (
+				298F8E29286A7329007A01EB /* View */,
+				298F8E28286A7321007A01EB /* Controller */,
+			);
+			path = TermsPage;
+			sourceTree = "<group>";
+		};
+		298F8E27286A6FFC007A01EB /* CategoriesPage */ = {
+			isa = PBXGroup;
+			children = (
+				298F8E2B286A733E007A01EB /* Controller */,
+				298F8E2A286A7339007A01EB /* View */,
+			);
+			path = CategoriesPage;
+			sourceTree = "<group>";
+		};
+		298F8E28286A7321007A01EB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2961B6892863E4E100A1DBF6 /* TermsAndConditionsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		298F8E29286A7329007A01EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2961B68A2863E4E100A1DBF6 /* TermsAndConditionsViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		298F8E2A286A7339007A01EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2961B68E2863F46100A1DBF6 /* CategoriesViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		298F8E2B286A733E007A01EB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2961B68D2863F46100A1DBF6 /* CategoriesViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		298F8E2C286A7347007A01EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2961B69D2865160B00A1DBF6 /* SugestionViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		298F8E2D286A734C007A01EB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2961B69E2865160B00A1DBF6 /* SugestionViewController.xib */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		71C6FDAB82DB5361AE582434 /* Frameworks */ = {
@@ -467,6 +558,7 @@
 				2961B69828650B5900A1DBF6 /* BoredApiService.swift in Sources */,
 				2961B69F2865160B00A1DBF6 /* SugestionViewController.swift in Sources */,
 				2961B68F2863F46100A1DBF6 /* CategoriesViewController.swift in Sources */,
+				298F8E2F286A7860007A01EB /* Categories.swift in Sources */,
 				2961B6922864D58D00A1DBF6 /* Activity.swift in Sources */,
 				2961B69C28650CB600A1DBF6 /* AlamofireAPIClient.swift in Sources */,
 			);
